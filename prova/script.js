@@ -38,9 +38,6 @@ if(log) {
 } else {
     return res.status(404).json({erro: 'log not found in english'});
 }
-app.listen(PORTA, () => {
-    console.log(`deu bom ou ruim na PORTA`)
-});
 
 app.post('/logs', (req, res) => {
     const { nome } = req.body;
@@ -49,10 +46,12 @@ app.post('/logs', (req, res) => {
       return res.status(400).json({ erro: 'Nome do aluno é obrigatório' });
     }
   
-    const id = registrarLog(nome);
+    const id = registrarLog(mensagem);
     res.status(201).json({ mensagem: 'Log registrado com sucesso', id });
   });
+
+  app.listen(PORTA, () => {
+    console.log(`deu bom ou ruim na PORTA`)
+});
   
-  app.listen(port, () => {
-    console.log(Servidor rodando em http:)//localhost:${PORTA});
-  });
+ 
