@@ -1,8 +1,8 @@
 const fs = require('fs')
-const { uuidv4 } = require('uuid')
+const { uuid } = require('uuid')
 
 function registrarLog(nomeAluno){
-    const id = uuidv4();
+    const id = uuid();
     const dataHora = new Date().toISOString().replace
     const mensagem = `${id} - ${dataHora} - ${nomeAluno}\n`
     
@@ -10,3 +10,8 @@ function registrarLog(nomeAluno){
 }
 
 module.exports = {registrarLog};
+
+const express = require('express');
+const fs = require('fs')
+const {registrarLog} = require
+const PORTA = 4000;
