@@ -41,3 +41,18 @@ if(log) {
 app.listen(PORTA, () => {
     console.log(`deu bom ou ruim na PORTA`)
 });
+
+app.post('/logs', (req, res) => {
+    const { nome } = req.body;
+  
+    if (!nome) {
+      return res.status(400).json({ erro: 'Nome do aluno é obrigatório' });
+    }
+  
+    const id = registrarLog(nome);
+    res.status(201).json({ mensagem: 'Log registrado com sucesso', id });
+  });
+  
+  app.listen(port, () => {
+    console.log(Servidor rodando em http:)//localhost:${PORTA});
+  });
